@@ -1,0 +1,11 @@
+.featuredProducts__items {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .featuredProducts__items {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

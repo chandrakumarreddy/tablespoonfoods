@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ToolBar from "./components/ToolBar/ToolBar";
+import SideDrawer from "./components/SideDrawer/SideDrawer";
+import BackDrop from "./components/BackDrop/BackDrop";
 
-function App() {
+export default function App({ children }) {
+  const [open, setOpen] = React.useState(false);
+  const handleDrawer = () => setOpen(a => !a);
+  let backDrop;
+  if (open) {
+    backDrop = <BackDrop handleClick={handleDrawer} />;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ToolBar handleClick={handleDrawer} />
+      <SideDrawer open={open} />
+      {backDrop}
+      <main style={{ marginTop: "56px" }}>{children}</main>
     </div>
   );
 }
-
-export default App;

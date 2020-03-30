@@ -1,0 +1,46 @@
+.sideDrawer {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  max-width: 400px;
+  background-color: #fff;
+  box-shadow: 1px 0 7px rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  transform: translateX(-103%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sideDrawer.open {
+  transform: translateX(0);
+}
+
+.sideDrawer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 1rem;
+}
+
+.sideDrawer li {
+  margin: 0.5rem 0;
+}
+
+.sideDrawer li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.sideDrawer li a:focus,
+.sideDrawer li a:active {
+  color: #000;
+}
+
+@media only screen and (min-width: 768px) {
+  .sideDrawer {
+    display: none;
+  }
+}
